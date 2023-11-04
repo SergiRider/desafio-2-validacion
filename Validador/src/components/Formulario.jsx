@@ -4,9 +4,11 @@ import { useState } from "react";
 const Formulario = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confPassword, setConfPass] = useState("")
   const validarInput = (e) => {
     e.preventDefault()
-    
     if(name === '') {
         setError(true)
         return
@@ -21,7 +23,6 @@ const Formulario = () => {
     {error ? <p className="error">Debes ingresar tu nombre</p> :
 null}
 
-        
         <h3>{name}</h3>
         <div className="form-group">
           <input
