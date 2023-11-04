@@ -12,7 +12,7 @@ const Registro = () => {
     <Alert/>
     <FormularioCopy/>
     {/* <Formulario/> */}
-    <SocialButton/>
+    <SocialButton github='true' instagram='true' facebook='true'/>
     <div></div>
     
     </>
