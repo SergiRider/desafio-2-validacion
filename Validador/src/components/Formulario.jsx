@@ -54,7 +54,7 @@ const handleChange = (e)=>{
 
   return (
     <>
-          <form className="formulario" onSubmit={(e)=>DataValidating(e)} >
+      <form className="formulario" onSubmit={(e)=>DataValidating(e)} >
 
         <div className="form-group">
           <input
