@@ -1,22 +1,16 @@
-import React from 'react'
-// import { FaGithub } from 'react-icons/fa';
+import { FaGithubAlt } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { FaFacebookF } from 'react-icons/fa';
 
-
-
-
-
-const SocialButton = () => {
-
-    
-
-  return (
-    <>
-    social button componente
-
-    </>   
-
-  )
+const SocialButton = ({github=false, facebook=false, instagram=false}) =>{
+    return(
+        <>
+            {github ? <FaGithubAlt className='socialicon'/> : null}
+            {facebook ? <FaFacebookF className='socialicon'/> : null}
+            {instagram ? <FaInstagram className='socialicon'/> : null}
+        </>
+    )
 }
 
 
-export default SocialButton
+export default SocialButton;
