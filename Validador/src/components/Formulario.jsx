@@ -1,28 +1,29 @@
 import { useState } from "react";
-import Card from 'react-bootstrap/Card';
+
 
 const Formulario = ({setError}) => {
     const [formData, SetFormData] = useState({
         name:"",
         email:"",
         password:"",
-        confPass:""
+        confPass:"",
     })
 
     const validarDatos=(e)=>{
         e.preventDefault()
-        const {name, email, password, confPass} =FormData
+        const {name, email, password, confPass} =formData
         const validarDatos = !name || !email || !password|| !confPass
         const validarPass = password !== confPass
-
+        
 
 validarDatos ? 
+
 setError({
     error: true,
-    msg: "todos los campos son obligatorios matee desde el ternario",
+    msg: "todos los campos son obligatorios matee desde el ternario >(",
     color: "warning"
 }) 
-:setError({
+:setError ( { 
 error: false,
 msg: "datos ingresados",
 color: "success"
@@ -37,29 +38,22 @@ if (validarPass){
     return
 }
 SetFormData({
-    name:"",
+        name:"",
         email:"",
         password:"",
         confPass:"",
-
 });
-    }
 
+    }
+ 
+    
 const handleChange = (e)=>{
     SetFormData({...formData, [e.target.name] : e.target.value})
 
-
 }
 
-    
   return (
     <>
-    <Card style={{ width: '18rem' }}>
-      
-      <Card.Body>
-        <Card.Title>Crea una cuenta</Card.Title>
-        <Card.Text>
-          //** IMPORTAR ICONOS ACA *//
           <form className="formulario" onSubmit={(e)=>validarDatos(e)} >
 
         <div className="form-group">
@@ -70,9 +64,9 @@ const handleChange = (e)=>{
             placeholder="Name"
             onChange={handleChange}
             value={formData.name}
-            
           />
         </div>
+
         <div className="form-group">
           <input
             type="email"
@@ -81,9 +75,9 @@ const handleChange = (e)=>{
             placeholder="Correo"
             onChange={handleChange}
             value={formData.email}
-            
           />
         </div>
+
         <div className="form-group">
           <input
             type="password"
@@ -92,9 +86,9 @@ const handleChange = (e)=>{
             placeholder="contraseña"
             onChange={handleChange}
             value={formData.password}
-            
           />
         </div>
+
         <div className="form-group">
           <input
             type="password"
@@ -103,7 +97,6 @@ const handleChange = (e)=>{
             placeholder="confirmar contraseña"
             onChange={handleChange}
             value={formData.confPass}
-            
           />
         </div>
 
@@ -112,13 +105,6 @@ const handleChange = (e)=>{
         </button>
       </form>
 
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    
-    
-    
-    
     </>
   )
 }
