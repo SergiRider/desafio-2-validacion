@@ -11,7 +11,7 @@ const Registro = ({error, setError}) => {
   return (
     
     <>
-      <Alert error={error}/>
+      
       
       <Card style={{ width: '18rem' }}>
       <Card.Body>
@@ -20,6 +20,7 @@ const Registro = ({error, setError}) => {
         <SocialButton github='true' instagram='true' facebook='true'/>  
       <Formulario error= {error}
       setError={setError}/> 
+      <Alert error={error}/>
           </Card.Text> 
        
       </Card.Body>

@@ -23,7 +23,7 @@ setError({
     msg: "todos los campos son obligatorios matee desde el ternario >(",
     color: "warning"
 }) 
-:setError ( { 
+:setError({ 
 error: false,
 msg: "datos ingresados",
 color: "success"

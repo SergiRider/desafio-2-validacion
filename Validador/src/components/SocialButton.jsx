@@ -5,8 +5,8 @@ import { FaFacebookF } from 'react-icons/fa';
 const SocialButton = ({github=false, facebook=false, instagram=false}) =>{
     return(
         <>
-            {github ? <FaGithubAlt className='socialicon'/> : null}
             {facebook ? <FaFacebookF className='socialicon'/> : null}
+            {github ? <FaGithubAlt className='socialicon'/> : null}
             {instagram ? <FaInstagram className='socialicon'/> : null}
         </>
     )

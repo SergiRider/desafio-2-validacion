@@ -8,9 +8,11 @@ function App() {
 
   return (
     <>
+    <body>
       <Registro 
       setError={setError}
       error={error}/>
+      </body>
     </>
   )
 }

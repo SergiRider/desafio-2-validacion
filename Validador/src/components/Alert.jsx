@@ -1,6 +1,4 @@
 import React from 'react'
-import SweetAlert from 'sweetalert2-react';
-
 
 const Alert = ({error}) => {
   
@@ -8,7 +6,7 @@ const Alert = ({error}) => {
   return (
     <>
     
-        {error ? (<div>{error.msg}</div>): null}
+        {error ? (<div className='mensajeAlerta' >{error.msg}</div>): null}
     </>
   )
 }
