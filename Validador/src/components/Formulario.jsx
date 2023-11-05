@@ -9,30 +9,30 @@ const Formulario = ({setError}) => {
         confPass:"",
     })
 
-    const validarDatos=(e)=>{
+    const DataValidating=(e)=>{
         e.preventDefault()
         const {name, email, password, confPass} =formData
-        const validarDatos = !name || !email || !password|| !confPass
-        const validarPass = password !== confPass
+        const DataValidation = !name || !email || !password|| !confPass
+        const PassValidation = password !== confPass
         
 
-validarDatos ? 
+DataValidation ? 
 
 setError({
-    error: true,
-    msg: "todos los campos son obligatorios matee desde el ternario >(",
-    color: "warning"
+        error: true,
+        msg: "Todos los campos son obligatorios, favor rellenar todos los campos solicitados",
+        color: "warning"
 }) 
 :setError({ 
-error: false,
-msg: "datos ingresados",
-color: "success"
+        error: false,
+        msg: "Datos ingresados exitosamente",
+        color: "success"
 });
 
-if (validarPass){
+if (PassValidation){
     setError({
         error: true,
-        msg: "Contrasenias no coinciden",
+        msg: "Contraseñas no coinciden, por favor intentelo de nuevo",
         color: "danger"
     });
     return
@@ -54,7 +54,7 @@ const handleChange = (e)=>{
 
   return (
     <>
-          <form className="formulario" onSubmit={(e)=>validarDatos(e)} >
+      <form className="formulario" onSubmit={(e)=>DataValidating(e)} >
 
         <div className="form-group">
           <input

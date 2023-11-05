@@ -5,27 +5,19 @@ import Formulario from './Formulario'
 import Card from 'react-bootstrap/Card';
 
 const Registro = ({error, setError}) => {
-  console.log(error)
-
-    
   return (
-    
     <>
-      
-      
       <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title>Crea una cuenta</Card.Title>
-        <Card.Text>
-        <SocialButton github='true' instagram='true' facebook='true'/>  
-      <Formulario error= {error}
-      setError={setError}/> 
-      <Alert error={error}/>
+        <Card.Body>
+          <Card.Title>Crea una cuenta</Card.Title>
+          <Card.Text>
+            <SocialButton github='true' instagram='true' facebook='true'/>  
+            <Formulario error= {error}
+                        setError={setError}/> 
+            <Alert error={error}/>
           </Card.Text> 
-       
-      </Card.Body>
-    </Card>
-      
+        </Card.Body>
+      </Card>  
     </>
   )
 }
