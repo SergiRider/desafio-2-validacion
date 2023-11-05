@@ -1,10 +1,13 @@
 import React from 'react'
 
-const Alert = () => {
+const Alert = ({error}) => {
+    
+
+
   return (
-    <div>Alert componente
-        
-    </div>
+    <>
+        {error ? (<div>todos los campos son obligatorios mate</div>): null}
+    </>
   )
 }
 

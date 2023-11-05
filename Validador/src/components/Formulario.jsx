@@ -1,41 +1,126 @@
-import React from "react";
 import { useState } from "react";
+import Card from 'react-bootstrap/Card';
 
-const Formulario = () => {
-  const [name, setName] = useState("");
-  const [error, setError] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confPassword, setConfPass] = useState("")
-  const validarInput = (e) => {
-    e.preventDefault()
-    if(name === '') {
-        setError(true)
-        return
-        }
-        setError(false)
+const Formulario = ({setError}) => {
+    const [formData, SetFormData] = useState({
+        name:"",
+        email:"",
+        password:"",
+        confPass:""
+    })
+
+    const validarDatos=(e)=>{
+        e.preventDefault()
+        const {name, email, password, confPass} =FormData
+        const validarDatos = !name || !email || !password|| !confPass
+        const validarPass = password !== confPass
+
+
+validarDatos ? 
+setError({
+    error: true,
+    msg: "todos los campos son obligatorios matee desde el ternario",
+    color: "warning"
+}) 
+:setError({
+error: false,
+msg: "datos ingresados",
+color: "success"
+});
+
+if (validarPass){
+    setError({
+        error: true,
+        msg: "Contrasenias no coinciden",
+        color: "danger"
+    });
+    return
+}
+SetFormData({
+    name:"",
+        email:"",
+        password:"",
+        confPass:"",
+
+});
     }
+
+const handleChange = (e)=>{
+    SetFormData({...formData, [e.target.name] : e.target.value})
+
+
+}
+
     
   return (
-    <> 
-    formulario componente
-    <form onSubmit={validarInput}>
-    {error ? <p className="error">Debes ingresar tu nombre</p> :
-null}
+    <>
+    <Card style={{ width: '18rem' }}>
+      
+      <Card.Body>
+        <Card.Title>Crea una cuenta</Card.Title>
+        <Card.Text>
+          //** IMPORTAR ICONOS ACA *//
+          <form className="formulario" onSubmit={(e)=>validarDatos(e)} >
 
-        <h3>{name}</h3>
         <div className="form-group">
           <input
+            type="text"
+            name="name"
             className="form-control"
-            name="Nombre"
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+            onChange={handleChange}
+            value={formData.name}
+            
           />
-          <button className="btn btn-dark mt-3" type="submit">
-            Enviar
-          </button>
         </div>
+        <div className="form-group">
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            placeholder="Correo"
+            onChange={handleChange}
+            value={formData.email}
+            
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            placeholder="contraseña"
+            onChange={handleChange}
+            value={formData.password}
+            
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            name="confPass"
+            className="form-control"
+            placeholder="confirmar contraseña"
+            onChange={handleChange}
+            value={formData.confPass}
+            
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary mt-4">
+          Registrarse
+        </button>
       </form>
+
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    
+    
+    
+    
     </>
-  );
-};
-export default Formulario;
+  )
+}
+
+export default Formulario
